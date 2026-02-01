@@ -1,6 +1,11 @@
 // API Configuration and Helper Functions
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// Update this URL after deploying your backend to Render
+const PROD_API_URL = 'https://review-moderation-backend.onrender.com/api';
+
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : PROD_API_URL;
 
 // Get stored token
 const getToken = () => localStorage.getItem('token');
