@@ -21,6 +21,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve Frontend Static Files
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/reviews', reviewRoutes);
@@ -36,6 +40,20 @@ app.get('/api/health', (req, res) => {
 
 // 404 handler
 app.use((req, res) => {
+    // Check if request is for API
+    if (req.originalUrl.startsWith('/api')) {
+        return res.status(404).json({
+            success: false,
+            message: `Route ${req.originalUrl} not found`
+        });
+    }
+
+    // For other requests, try to serve index.html or 404 page
+    // Since we are using express.static, if file not found, we land here.
+    // For SPA we would send index.html, but for MPA we can send a custom 404 or just redirect.
+    // Let's send a simple 404 JSON for now to avoid loops, but if it was SPA:
+    // res.sendFile(path.join(__dirname, '../frontend/index.html'));
+
     res.status(404).json({
         success: false,
         message: `Route ${req.originalUrl} not found`

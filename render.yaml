@@ -1,26 +1,17 @@
 services:
-  # Backend Service
+  # Backend Service (serving both API and Frontend)
   - type: web
-    name: review-moderation-backend
+    name: review-moderation
     env: node
-    region: singapore # Optional: chose a region close to you
-    plan: free # Use free tier
+    region: singapore
+    plan: free
     root: backend
     buildCommand: npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: MONGODB_URI
-        sync: false # You will need to enter this in Render Dashboard
+        sync: false
       - key: JWT_SECRET
-        generateValue: true # Generates a random secret for you
-
-  # Frontend Service
-  - type: static
-    name: review-moderation-frontend
-    root: frontend
-    staticPublishPath: ./
-    # No build command needed for vanilla HTML/JS
+        generateValue: true

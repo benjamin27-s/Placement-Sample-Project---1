@@ -4,8 +4,8 @@
 const PROD_API_URL = 'https://review-moderation-backend.onrender.com/api';
 
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-    ? 'http://localhost:5000/api'
-    : PROD_API_URL;
+    ? (window.location.port !== '5000' && window.location.port !== '' ? 'http://localhost:5000/api' : '/api')
+    : '/api';
 
 // Get stored token
 const getToken = () => localStorage.getItem('token');
