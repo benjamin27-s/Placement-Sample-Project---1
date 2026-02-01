@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Dashboard - Submit and track your reviews">
+    <title>User Dashboard - Review Moderation Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">🛡️ ReviewMod</a>
+            <ul class="navbar-nav" id="nav-links"></ul>
+            <div class="user-info" id="user-info"></div>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">👤 User Dashboard</h1>
+                <p class="dashboard-subtitle">Submit reviews and track their approval status.</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-reviews">0</div>
+                    <div class="stat-label">Total Reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="pending-reviews">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="approved-reviews">0</div>
+                    <div class="stat-label">Approved</div>
+                </div>
+            </div>
+
+            <div id="alert-container"></div>
+
+            <div class="dashboard-grid two-cols">
+                <!-- Submit Review Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📝 Submit a Review</h3>
+                    </div>
+
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label for="item-id" class="form-label">Item ID</label>
+                            <input type="text" id="item-id" class="form-control" placeholder="e.g., PROD-001" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="item-name" class="form-label">Item Name</label>
+                            <input type="text" id="item-name" class="form-control"
+                                placeholder="e.g., Wireless Headphones" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review-text" class="form-label">Your Review</label>
+                            <textarea id="review-text" class="form-control"
+                                placeholder="Share your experience with this item..." required minlength="10"
+                                maxlength="1000"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Rating (Optional)</label>
+                            <div class="rating-input">
+                                <input type="radio" name="rating" value="5" id="star5">
+                                <label for="star5" title="5 stars">★</label>
+                                <input type="radio" name="rating" value="4" id="star4">
+                                <label for="star4" title="4 stars">★</label>
+                                <input type="radio" name="rating" value="3" id="star3">
+                                <label for="star3" title="3 stars">★</label>
+                                <input type="radio" name="rating" value="2" id="star2">
+                                <label for="star2" title="2 stars">★</label>
+                                <input type="radio" name="rating" value="1" id="star1">
+                                <label for="star1" title="1 star">★</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            📤 Submit Review
+                        </button>
+                    </form>
+                </div>
+
+                <!-- My Reviews List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📋 My Reviews</h3>
+                    </div>
+
+                    <div class="reviews-grid" id="reviews-list">
+                        <div class="text-center">
+                            <span class="spinner"></span> Loading reviews...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

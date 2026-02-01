@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review Moderation Platform - Submit and moderate product reviews with role-based access control">
+  <title>Review Moderation Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">🛡️ ReviewMod</a>
+      <ul class="navbar-nav" id="nav-links">
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </ul>
+      <div class="user-info" id="user-info"></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Review Moderation<br>Made Simple</h1>
+      <p>A secure platform for submitting and moderating product reviews with role-based access control, JWT authentication, and real-time approval tracking.</p>
+      <div class="hero-buttons">
+        <a href="register.html" class="btn btn-primary">Get Started →</a>
+        <a href="login.html" class="btn btn-secondary">Login</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="container">
+    <div class="features-grid">
+      <div class="card feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Secure Authentication</h3>
+        <p>JWT-based authentication with encrypted passwords. Your data stays protected.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Role-Based Access</h3>
+        <p>Separate dashboards for users and moderators with appropriate permissions.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Easy Review Submission</h3>
+        <p>Submit reviews with ratings and track their approval status in real-time.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">✅</div>
+        <h3>Quick Moderation</h3>
+        <p>Moderators can approve or reject reviews with a single click.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">🚫</div>
+        <h3>Duplicate Prevention</h3>
+        <p>Smart backend validation prevents users from submitting multiple reviews per item.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Persistent Storage</h3>
+        <p>All data is securely stored in MongoDB with proper indexing and constraints.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
