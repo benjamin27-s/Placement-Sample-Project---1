@@ -1,10 +1,7 @@
 services:
-  # Backend Service (serving both API and Frontend)
   - type: web
     name: review-moderation
     env: node
-    region: singapore
-    plan: free
     root: backend
     buildCommand: npm install
     startCommand: npm start
